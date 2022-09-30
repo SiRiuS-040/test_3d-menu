@@ -240,21 +240,21 @@
             cursor: pointer;
 
             transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
-            transition: all 1s;
+            // transition: all 1s;
 
             &:hover {
                 // transform: perspective(1300px) rotateY(20deg) translateZ(340px) scale(0.5);
-                transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+                transform: perspective(1300px) rotateY(20deg) translateZ(320px) scale(0.5);
 
                 & + .shadow.one {
-                    // transform: perspective(1300px) rotateY(20deg) translateZ(230px) scale(0.5);
-                    transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+                    transform: perspective(1300px) rotateY(20deg) translateZ(230px) scale(0.5);
+                    // transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
                 }
             }
 
             &.change {
-                animation: change-bg 0.6s ease-out;
-                transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+                // animation: change-bg 0.6s ease-out;
+                // transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
             }
         }
         // тени
@@ -275,6 +275,25 @@
 
         .header {
             transition: 0.5s all;
+        }
+
+        &.change {
+            & .main {
+                animation: change-bg 0.6s ease-out;
+                // opacity: 0;
+                transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+            }
+
+            & .shadow {
+                &.one {
+                    animation: change-shadow 0.6s ease-out;
+                    transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+                }
+                &.two {
+                    animation: change-bg 0.6s ease-out;
+                    transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+                }
+            }
         }
     }
 }
@@ -357,17 +376,17 @@
 
 @keyframes change-bg {
     0% {
-        opacity: 1;
+        // opacity: 1;
         transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
     }
 
     50% {
         opacity: 0;
-        transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+        transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
     }
 
     100% {
-        opacity: 1;
+        // opacity: 1;
         transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
     }
 }

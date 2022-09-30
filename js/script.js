@@ -21,9 +21,14 @@ function setBg(id) {
 
         screen.style.display = 'none';
     });
-
     bg.style.display = 'block'
-    // bg.classList.add('change')
+
+    container.classList.add('change')
+
+    setTimeout(() => {
+
+        container.classList.remove('change')
+    }, 500);
 
 
 }
