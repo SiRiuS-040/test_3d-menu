@@ -47,7 +47,14 @@ function changeBg() {
             e.preventDefault();
             // setBg(e.target.dataset.link)
 
-            container.classList.toggle('active')
+            setBg(e.target.dataset.link)
+
+            setTimeout(() => {
+                container.classList.toggle('active')
+            }, 700);
+
+
+
         })
     });
 
