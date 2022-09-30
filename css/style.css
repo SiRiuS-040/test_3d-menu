@@ -1,0 +1,297 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #485461;
+  background-image: linear-gradient(135deg, #485461 0%, #28313b 74%);
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+.container .main {
+  position: relative;
+  width: 100%;
+  left: 0;
+  z-index: 5;
+  overflow: hidden;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transition: 0.5s all;
+}
+.container .header {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  transition: all 0.5s;
+}
+.container .header--one {
+  background: url(../img/1.jpg) no-repeat top center/cover;
+}
+.container .header--two {
+  background: url(../img/2.jpg) no-repeat top center/cover;
+}
+.container .header--three {
+  background: url(../img/3.jpg) no-repeat top center/cover;
+}
+.container .header--four {
+  background: url(../img/4.jpg) no-repeat top center/cover;
+}
+.container .header--five {
+  background: url(../img/5.jpg) no-repeat top center/cover;
+}
+.container .header__wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(43, 51, 59, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .header__item {
+  max-width: 35%;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+.container .header__title {
+  font-size: 30px;
+}
+.container .header__button {
+  margin-top: 10px;
+  padding: 6px 16px;
+  background-color: #1179e7;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+}
+.container .shadow {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  transform-origin: left;
+  transition: 0.5s;
+  background-color: white;
+}
+.container .shadow.one {
+  z-index: -1;
+  opacity: 0.15;
+}
+.container .shadow.two {
+  z-index: -2;
+  opacity: 0.1;
+}
+.container .back-navigation {
+  position: absolute;
+  width: 30%;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .back-navigation__link {
+  text-decoration: none;
+  color: #eee;
+  padding: 7px 0;
+  font-size: 15px;
+  display: inline-block;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: hide 0.5s forwards ease;
+}
+.container .back-navigation__list {
+  list-style: none;
+}
+
+.navigation {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  height: 30px;
+}
+.navigation .navigation__menu {
+  max-width: 72%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.navigation .navigation__logo {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 40px;
+}
+.navigation .navigation__logo span {
+  font-weight: 300;
+}
+.navigation .navigation__burger {
+  height: 40px;
+  width: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.navigation .navigation__bar {
+  width: 30px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #eee;
+  transition: 0.3s;
+  position: relative;
+}
+.navigation .navigation__bar::after, .navigation .navigation__bar::before {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background: #eee;
+  transform: 0.5s;
+}
+.navigation .navigation__bar:after {
+  transform: translateY(9px);
+}
+.navigation .navigation__bar::before {
+  transform: translateY(-9px);
+}
+
+.container.active .navigation__bar {
+  transform: rotate(180deg);
+  background-color: transparent;
+}
+.container.active .navigation__bar::after {
+  transform: translateY(0) rotate(-45deg);
+}
+.container.active .navigation__bar::before {
+  transform: translateY(0) rotate(45deg);
+}
+.container.active .main {
+  cursor: pointer;
+  transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  transition: all 1s;
+}
+.container.active .main:hover {
+  transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+}
+.container.active .main:hover + .shadow.one {
+  transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+}
+.container.active .main.change {
+  animation: change-bg 0.6s ease-out;
+  transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+}
+.container.active .shadow.one {
+  animation: shadow-one 0.6s ease-out;
+  transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+}
+.container.active .shadow.two {
+  animation: shadow-two 0.6s ease-out;
+  transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+}
+.container.active .back-navigation__link {
+  animation: appear 0.5s forwards ease var(--i);
+}
+.container.active .header {
+  transition: 0.5s all;
+}
+
+@keyframes main-animation-one {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes main-animation {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+}
+@keyframes shadow-one {
+  0% {
+    transform: translate(0);
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+  5% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+  100% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+  }
+}
+@keyframes shadow-two {
+  0% {
+    transform: translate(0);
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+  20% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+  100% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+  }
+}
+@keyframes hide {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes change-bg {
+  0% {
+    opacity: 1;
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+  50% {
+    opacity: 0;
+    transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+}
