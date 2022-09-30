@@ -202,11 +202,9 @@
   transform: perspective(1300px) rotateY(20deg) translateZ(230px) scale(0.5);
 }
 .container.active .shadow.one {
-  animation: shadow-one 0.6s ease-out;
   transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
 }
 .container.active .shadow.two {
-  animation: shadow-two 0.6s ease-out;
   transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
 }
 .container.active .back-navigation__link {
@@ -220,11 +218,11 @@
   transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
 }
 .container.active.change .shadow.one {
-  animation: change-shadow 0.6s ease-out;
+  animation: change-shadow-one 0.6s ease-out;
   transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
 }
 .container.active.change .shadow.two {
-  animation: change-bg 0.6s ease-out;
+  animation: change-shadow-two 0.6s ease-out;
   transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
 }
 
@@ -298,5 +296,27 @@
   }
   100% {
     transform: perspective(1300px) rotateY(20deg) translateZ(310px) scale(0.5);
+  }
+}
+@keyframes change-shadow-one {
+  0% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+  }
+  50% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+  }
+  100% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+  }
+}
+@keyframes change-shadow-two {
+  0% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
+  }
+  50% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(215px) scale(0.5);
+  }
+  100% {
+    transform: perspective(1300px) rotateY(20deg) translateZ(120px) scale(0.5);
   }
 }
